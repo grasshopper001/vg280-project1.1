@@ -51,7 +51,7 @@ private:
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
                 digit[i][j]=(i)*n+j+1;
-                if(i%(4)==j%(4)||i%(4)+j%(4)==3){digit[i][j]=complement-digit[i][j];}
+                if(i%4==j%4||i%4+j%4==3){digit[i][j]=complement-digit[i][j];}
             }
         }
 
@@ -62,8 +62,8 @@ public:
         for(int i=0;i<n;i++){
             digit[i]=(int*)calloc(n,sizeof(int));
         }
-        if(n!=n/2*2) {init_odd(1,0,n/2);}
-        else if(n!=n/4*4){init_mod2();}
+        if(n%2) {init_odd(1,0,n/2);}
+        else if(n%4){init_mod2();}
         else{init_mod4();}
     }
     void print(){
