@@ -8,6 +8,8 @@ class magic_square{
 private:
     int**digit;
     int n;
+    //x=(x-1+n)%n;
+    //y=(y+1)%n;
     bool init_odd(int currentNumber,int row,int col){
         if(currentNumber>n*n){
             return true;
