@@ -2,16 +2,14 @@
 // Created by sunyi on 2017/1/30.
 //
 #include <iostream>
-#include <cmath>
 #include <iomanip>
-#define swap(a,b) a=a^b;b=a^b;a=a^b;
 
 class magic_square{
 private:
     int**digit;
     int n;
     bool init_odd(int currentNumber,int row,int col){
-        if(currentNumber>pow(n,2)){
+        if(currentNumber>n*n){
             return true;
         }
         if(row>=0&&col>=0&&row<n&&col<n){
@@ -35,16 +33,16 @@ private:
         for(int i=0;i<n/2;i++){
             if(i==n/4){
                 for(int j=0;j<k;j++){
-                    swap(this->digit[i][j+n/4],this->digit[i+n/2][j+n/4]);
+                    std::swap(this->digit[i][j+n/4],this->digit[i+n/2][j+n/4]);
                 }
             }
             else{
                 for(int j=0;j<k;j++){
-                    swap(this->digit[i][j],this->digit[i+n/2][j]);
+                    std::swap(this->digit[i][j],this->digit[i+n/2][j]);
                 }
             }
             for(int j=0;j<k-1;j++){
-                swap(this->digit[i][n-1-n/4-j],this->digit[i+n/2][n-1-n/4-j]);
+                std::swap(this->digit[i][n-1-n/4-j],this->digit[i+n/2][n-1-n/4-j]);
             }
         }
     }
