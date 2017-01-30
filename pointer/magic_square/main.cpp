@@ -53,7 +53,7 @@ private:
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
                 digit[i][j]=(i)*n+j+1;
-                if(i%(n/2)==j%(n/2)||i%(n/2)+j%(n/2)==(n/2-1)){digit[i][j]=complement-digit[i][j];}
+                if(i%(4)==j%(4)||i%(4)+j%(4)==3){digit[i][j]=complement-digit[i][j];}
             }
         }
 
