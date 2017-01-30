@@ -48,6 +48,16 @@ private:
             }
         }
     }
+    void init_mod4(){
+        int complement=n*n+1;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                digit[i][j]=(i)*n+j+1;
+                if(i%(n/2)==j%(n/2)||i%(n/2)+j%(n/2)==(n/2-1)){digit[i][j]=complement-digit[i][j];}
+            }
+        }
+
+    }
 public:
     magic_square(int n):n(n){
         digit=new int*[n];
@@ -56,6 +66,7 @@ public:
         }
         if(n!=n/2*2) {init_odd(1,0,n/2);}
         else if(n!=n/4*4){init_mod2();}
+        else{init_mod4();}
     }
     void print(){
         for(int i=0;i<n;i++){
@@ -74,7 +85,10 @@ public:
 };
 
 int main(){
-    magic_square square(10);
+    std::cout<<"please enter an integer"<<std::endl;
+    int temp=3;
+    std::cin>>temp;
+    magic_square square(temp);
     square.print();
     return 0;
 }
